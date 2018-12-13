@@ -80,18 +80,17 @@
 
                     <!-- COL -->
                     <div class="col-md-4 col-sm-6 mb-2">
-                        <div class="card shadow">
-                            <iframe class="latestVideoEmbed" vnum='0' cid="UCp1zWydJPdmoJ-BqaGLUHbA" height="225px" frameborder="0" allowfullscreen></iframe>
+                        <div class="card shadow latestVideoEmbed" vnum='0' cid="UCp1zWydJPdmoJ-BqaGLUHbA">
+                            <iframe id="videoEmbed" height="225px" frameborder="0" allowfullscreen></iframe>
                             <div class="card-body">
-                                <p class="latestVideoEmbedDesc" vnum='0' cid="UCp1zWydJPdmoJ-BqaGLUHbA">This is a wider card with supporting text below as a natural
+                                <p class="text-muted" id="videoDesc">This is a wider card with supporting text below as a natural
                                     lead-in
                                     to additional content. This content is a little bit longer.</p>
 
                                 <!-- BOTTOM INFO -->
                                 <div class="d-flex fj-between fa-center">
                                     <div class="button-group">
-                                        <button type="button" class="btn-sm btn-primary">View</button>
-                                        <button type="button" class="btn-sm btn-dark">Edit</button>
+                                        <a type="button" id="videoBtn" class="btn-sm btn-primary" target="_blank">View</a>
                                     </div>
                                     <small class="text-muted">5 mins</small>
                                 </div>
@@ -102,19 +101,17 @@
 
                     <!-- COL -->
                     <div class="col-md-4 col-sm-6 mb-2">
-                        <div class="card shadow">
-                            <img class="img-cover" data-src="holder.js/100px225?theme=thumb&bg=7971aa&fg=eceeef&text=Thumbnail"
-                                alt="Card image cap">
+                        <div class="card shadow latestVideoEmbed" vnum='1' cid="UCp1zWydJPdmoJ-BqaGLUHbA">
+                            <iframe id="videoEmbed" height="225px" frameborder="0" allowfullscreen></iframe>
                             <div class="card-body">
-                                <p class="text-muted">This is a wider card with supporting text below as a natural
+                                <p class="text-muted" id="videoDesc">This is a wider card with supporting text below as a natural
                                     lead-in
                                     to additional content. This content is a little bit longer.</p>
 
                                 <!-- BOTTOM INFO -->
                                 <div class="d-flex fj-between fa-center">
                                     <div class="button-group">
-                                        <button type="button" class="btn-sm btn-primary">View</button>
-                                        <button type="button" class="btn-sm btn-dark">Edit</button>
+                                        <a type="button" id="videoBtn" class="btn-sm btn-primary" target="_blank">View</a>
                                     </div>
                                     <small class="text-muted">5 mins</small>
                                 </div>
@@ -238,20 +235,23 @@
     <!-- Youtube -->
     <script>
     var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
-    function loadVideo(iframe){
-        $.getJSON( reqURL + iframe.getAttribute('cid'),
+    function loadVideo(video){
+        $.getJSON( reqURL + video.getAttribute('cid'),
         function(data) {
-            var videoNumber = (iframe.getAttribute('vnum')?Number(iframe.getAttribute('vnum')):0);
-            console.log(videoNumber);
+            var videoNumber = (video.getAttribute('vnum')?Number(video.getAttribute('vnum')):0);
             var link = data.items[videoNumber].link;
-            id = link.substr(link.indexOf("=") + 1);  
-            iframe.setAttribute("src","https://youtube.com/embed/"+id + "?controls=1&autoplay=1");
+            id = link.substr(link.indexOf("=") + 1); 
+            var iframe = $(video).find("#videoEmbed"); 
+            iframe.attr("src", "https://youtube.com/embed/" + id + "?controls=1&autoplay=1");
+            var desc = $(video).find("#videoDesc"); 
+            var videoBtn = $(video).find("#videoBtn");
+            videoBtn.attr("href", "https://www.youtube.com/watch?v=" + id);
         }
     );
     }
-    var iframes = document.getElementsByClassName('latestVideoEmbed');
-    for (var i = 0, len = iframes.length; i < len; i++){
-        loadVideo(iframes[i]);
+    var videos = document.getElementsByClassName('latestVideoEmbed');
+    for (var i = 0, len = videos.length; i < len; i++){
+        loadVideo(videos[i]);
     }
     </script>
 </body>
