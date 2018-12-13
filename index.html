@@ -21,25 +21,6 @@
     <!-- JQUERY  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-    <!-- Youtube -->
-    <script>
-    var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
-    function loadVideo(iframe){
-        $.getJSON( reqURL + iframe.getAttribute('cid'),
-        function(data) {
-            var videoNumber = (iframe.getAttribute('vnum')?Number(iframe.getAttribute('vnum')):0);
-            console.log(videoNumber);
-            var link = data.items[videoNumber].link;
-            id = link.substr(link.indexOf("=") + 1);  
-            iframe.setAttribute("src","https://youtube.com/embed/"+id + "?controls=0&autoplay=1");
-        }
-    );
-    }
-    var iframes = document.getElementsByClassName('latestVideoEmbed');
-    for (var i = 0, len = iframes.length; i < len; i++){
-        loadVideo(iframes[i]);
-    }
-    </script>
 </head>
 
 <body>
@@ -86,8 +67,8 @@
                 <div class="col-md-8 mx-auto">
                     <p class="text-muted">Check out our collection of games, apps, and more!</p>
 
-                    <a href="https://www.youtube.com/channel/UCp1zWydJPdmoJ-BqaGLUHbA" class="btn-primary my-2">Youtube</a>
-                    <a href="https://play.google.com/store/apps/developer?id=Tomny+Studios" class="btn-dark my-2">Google PlayStore</a>
+                    <a href="https://www.youtube.com/channel/UCp1zWydJPdmoJ-BqaGLUHbA" class="btn-primary my-2" target="_blank">Youtube</a>
+                    <a href="https://play.google.com/store/apps/developer?id=Tomny+Studios" class="btn-primary my-2" target="_blank">Google PlayStore</a>
 
                 </div>
             </div>
@@ -100,9 +81,9 @@
                     <!-- COL -->
                     <div class="col-md-4 col-sm-6 mb-2">
                         <div class="card shadow">
-                            <iframe class="latestVideoEmbed" vnum='0' cid="UCp1zWydJPdmoJ-BqaGLUHbA" frameborder="0" allowfullscreen></iframe>
+                            <iframe class="latestVideoEmbed" vnum='0' cid="UCp1zWydJPdmoJ-BqaGLUHbA" height="225px" frameborder="0" allowfullscreen></iframe>
                             <div class="card-body">
-                                <p class="text-muted">This is a wider card with supporting text below as a natural
+                                <p class="latestVideoEmbedDesc" vnum='0' cid="UCp1zWydJPdmoJ-BqaGLUHbA">This is a wider card with supporting text below as a natural
                                     lead-in
                                     to additional content. This content is a little bit longer.</p>
 
@@ -241,11 +222,6 @@
 
     <footer class="px-1">
         <div class="container text-center">
-
-            <p class="text-muted mb-0">Album example is &copy; Butter Cake, but please download and customize it for
-                yourself!</p>
-            <p class="text-muted">New to Butter Cake? <a href="../../">Visit the homepage</a> or read our <a href="../../get-started/">getting
-                    started guide</a>.</p>
             <p class="float-right">
                 <a class="btn-primary" href="#">Back to top</a>
             </p>
@@ -258,6 +234,27 @@
     <script src="assets/js/butterCake.js"></script>
     <script src="assets/js/holder.js"></script>
 
+
+    <!-- Youtube -->
+    <script src="./scripts/xml2json.js"></script>
+    <script>
+    var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
+    function loadVideo(iframe){
+        $.getJSON( reqURL + iframe.getAttribute('cid'),
+        function(data) {
+            var videoNumber = (iframe.getAttribute('vnum')?Number(iframe.getAttribute('vnum')):0);
+            console.log(videoNumber);
+            var link = data.items[videoNumber].link;
+            id = link.substr(link.indexOf("=") + 1);  
+            iframe.setAttribute("src","https://youtube.com/embed/"+id + "?controls=1&autoplay=1");
+        }
+    );
+    }
+    var iframes = document.getElementsByClassName('latestVideoEmbed');
+    for (var i = 0, len = iframes.length; i < len; i++){
+        loadVideo(iframes[i]);
+    }
+    </script>
 </body>
 
 </html>
