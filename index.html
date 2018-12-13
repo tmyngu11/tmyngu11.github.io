@@ -73,9 +73,36 @@
                 </div>
             </div>
         </section>
+        <section class="jumbotron fluid text-center">
+            <div class="container">
+                <h1>Web Games</h1>
+                <div class="row">
+                    <!-- COL -->
+                    <div class="col-md-4 col-sm-6 mb-2">
+                        <div class="card shadow">
+                            <img src="./img/poo.png"></img>
+                            <div class="card-body">
+                                <p class="text-muted"></p>
+
+                                <!-- BOTTOM INFO -->
+                                <div class="d-flex fj-between fa-center">
+                                    <div class="button-group">
+                                        <a type="button" class="btn-sm btn-primary" target="_blank">Play</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
 
         <div class="album py-5">
             <div class="container">
+                <h1>Videos</h1>
                 <div class="row">
 
                     <!-- COL -->
@@ -92,7 +119,7 @@
                                     <div class="button-group">
                                         <a type="button" id="videoBtn" class="btn-sm btn-primary" target="_blank">View</a>
                                     </div>
-                                    <small class="text-muted">5 mins</small>
+                                    <small class="text-muted" id="videoDate">5 mins</small>
                                 </div>
 
                             </div>
@@ -113,7 +140,7 @@
                                     <div class="button-group">
                                         <a type="button" id="videoBtn" class="btn-sm btn-primary" target="_blank">View</a>
                                     </div>
-                                    <small class="text-muted">5 mins</small>
+                                    <small class="text-muted" id="videoDate">5 mins</small>
                                 </div>
 
                             </div>
@@ -122,21 +149,19 @@
 
                     <!-- COL -->
                     <div class="col-md-4 col-sm-6 mb-2">
-                        <div class="card shadow">
-                            <img class="img-cover" data-src="holder.js/100px225?theme=thumb&bg=7971aa&fg=eceeef&text=Thumbnail"
-                                alt="Card image cap">
+                        <div class="card shadow latestVideoEmbed" vnum='2' cid="UCp1zWydJPdmoJ-BqaGLUHbA">
+                            <iframe id="videoEmbed" height="225px" frameborder="0" allowfullscreen></iframe>
                             <div class="card-body">
-                                <p class="text-muted">This is a wider card with supporting text below as a natural
+                                <p class="text-muted" id="videoDesc">This is a wider card with supporting text below as a natural
                                     lead-in
                                     to additional content. This content is a little bit longer.</p>
 
                                 <!-- BOTTOM INFO -->
                                 <div class="d-flex fj-between fa-center">
                                     <div class="button-group">
-                                        <button type="button" class="btn-sm btn-primary">View</button>
-                                        <button type="button" class="btn-sm btn-dark">Edit</button>
+                                        <a type="button" id="videoBtn" class="btn-sm btn-primary" target="_blank">View</a>
                                     </div>
-                                    <small class="text-muted">5 mins</small>
+                                    <small class="text-muted" id="videoDate">5 mins</small>
                                 </div>
 
                             </div>
@@ -145,21 +170,19 @@
 
                     <!-- COL -->
                     <div class="col-md-4 col-sm-6 mb-2">
-                        <div class="card shadow">
-                            <img class="img-cover" data-src="holder.js/100px225?theme=thumb&bg=7971aa&fg=eceeef&text=Thumbnail"
-                                alt="Card image cap">
+                        <div class="card shadow latestVideoEmbed" vnum='3' cid="UCp1zWydJPdmoJ-BqaGLUHbA">
+                            <iframe id="videoEmbed" height="225px" frameborder="0" allowfullscreen></iframe>
                             <div class="card-body">
-                                <p class="text-muted">This is a wider card with supporting text below as a natural
+                                <p class="text-muted" id="videoDesc">This is a wider card with supporting text below as a natural
                                     lead-in
                                     to additional content. This content is a little bit longer.</p>
 
                                 <!-- BOTTOM INFO -->
                                 <div class="d-flex fj-between fa-center">
                                     <div class="button-group">
-                                        <button type="button" class="btn-sm btn-primary">View</button>
-                                        <button type="button" class="btn-sm btn-dark">Edit</button>
+                                        <a type="button" id="videoBtn" class="btn-sm btn-primary" target="_blank">View</a>
                                     </div>
-                                    <small class="text-muted">5 mins</small>
+                                    <small class="text-muted" id="videoDate">5 mins</small>
                                 </div>
 
                             </div>
@@ -168,21 +191,19 @@
 
                     <!-- COL -->
                     <div class="col-md-4 col-sm-6 mb-2">
-                        <div class="card shadow">
-                            <img class="img-cover" data-src="holder.js/100px225?theme=thumb&bg=7971aa&fg=eceeef&text=Thumbnail"
-                                alt="Card image cap">
+                        <div class="card shadow latestVideoEmbed" vnum='4' cid="UCp1zWydJPdmoJ-BqaGLUHbA">
+                            <iframe id="videoEmbed" height="225px" frameborder="0" allowfullscreen></iframe>
                             <div class="card-body">
-                                <p class="text-muted">This is a wider card with supporting text below as a natural
+                                <p class="text-muted" id="videoDesc">This is a wider card with supporting text below as a natural
                                     lead-in
                                     to additional content. This content is a little bit longer.</p>
 
                                 <!-- BOTTOM INFO -->
                                 <div class="d-flex fj-between fa-center">
                                     <div class="button-group">
-                                        <button type="button" class="btn-sm btn-primary">View</button>
-                                        <button type="button" class="btn-sm btn-dark">Edit</button>
+                                        <a type="button" id="videoBtn" class="btn-sm btn-primary" target="_blank">View</a>
                                     </div>
-                                    <small class="text-muted">5 mins</small>
+                                    <small class="text-muted" id="videoDate">5 mins</small>
                                 </div>
 
                             </div>
@@ -191,21 +212,19 @@
 
                     <!-- COL -->
                     <div class="col-md-4 col-sm-6 mb-2">
-                        <div class="card shadow">
-                            <img class="img-cover" data-src="holder.js/100px225?theme=thumb&bg=7971aa&fg=eceeef&text=Thumbnail"
-                                alt="Card image cap">
+                        <div class="card shadow latestVideoEmbed" vnum='5' cid="UCp1zWydJPdmoJ-BqaGLUHbA">
+                            <iframe id="videoEmbed" height="225px" frameborder="0" allowfullscreen></iframe>
                             <div class="card-body">
-                                <p class="text-muted">This is a wider card with supporting text below as a natural
+                                <p class="text-muted" id="videoDesc">This is a wider card with supporting text below as a natural
                                     lead-in
                                     to additional content. This content is a little bit longer.</p>
 
                                 <!-- BOTTOM INFO -->
                                 <div class="d-flex fj-between fa-center">
                                     <div class="button-group">
-                                        <button type="button" class="btn-sm btn-primary">View</button>
-                                        <button type="button" class="btn-sm btn-dark">Edit</button>
+                                        <a type="button" id="videoBtn" class="btn-sm btn-primary" target="_blank">View</a>
                                     </div>
-                                    <small class="text-muted">5 mins</small>
+                                    <small class="text-muted" id="videoDate">5 mins</small>
                                 </div>
 
                             </div>
@@ -239,13 +258,22 @@
         $.getJSON( reqURL + video.getAttribute('cid'),
         function(data) {
             var videoNumber = (video.getAttribute('vnum')?Number(video.getAttribute('vnum')):0);
+
             var link = data.items[videoNumber].link;
             id = link.substr(link.indexOf("=") + 1); 
             var iframe = $(video).find("#videoEmbed"); 
             iframe.attr("src", "https://youtube.com/embed/" + id + "?controls=1&autoplay=1");
+
+            var title = data.items[videoNumber].title;
             var desc = $(video).find("#videoDesc"); 
+            desc.text(title);
+
             var videoBtn = $(video).find("#videoBtn");
             videoBtn.attr("href", "https://www.youtube.com/watch?v=" + id);
+
+            var date = data.items[videoNumber].pubDate;
+            var vidDate = $(video).find("#videoDate"); 
+            vidDate.text(date);
         }
     );
     }
