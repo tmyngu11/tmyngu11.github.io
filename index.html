@@ -17,6 +17,29 @@
           enable_page_level_ads: true
      });
     </script>
+
+    <!-- JQUERY  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- Youtube -->
+    <script>
+    var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
+    function loadVideo(iframe){
+        $.getJSON( reqURL + iframe.getAttribute('cid'),
+        function(data) {
+            var videoNumber = (iframe.getAttribute('vnum')?Number(iframe.getAttribute('vnum')):0);
+            console.log(videoNumber);
+            var link = data.items[videoNumber].link;
+            id = link.substr(link.indexOf("=") + 1);  
+            iframe.setAttribute("src","https://youtube.com/embed/"+id + "?controls=0&autoplay=1");
+        }
+    );
+    }
+    var iframes = document.getElementsByClassName('latestVideoEmbed');
+    for (var i = 0, len = iframes.length; i < len; i++){
+        loadVideo(iframes[i]);
+    }
+    </script>
 </head>
 
 <body>
@@ -77,8 +100,7 @@
                     <!-- COL -->
                     <div class="col-md-4 col-sm-6 mb-2">
                         <div class="card shadow">
-                            <img class="img-cover" data-src="holder.js/100px225?theme=thumb&bg=7971aa&fg=eceeef&text=Thumbnail"
-                                alt="Card image cap">
+                            <iframe class="latestVideoEmbed" vnum='0' cid="UCp1zWydJPdmoJ-BqaGLUHbA" frameborder="0" allowfullscreen></iframe>
                             <div class="card-body">
                                 <p class="text-muted">This is a wider card with supporting text below as a natural
                                     lead-in
